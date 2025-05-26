@@ -1,4 +1,4 @@
-import NavbarDemo, { AppleCardsCarouselDemo, ColourfulTextDemo, StickyScrollRevealDemo, ThreeDCardDemo } from "./homespages";
+import NavbarDemo, { BentoGridThirdDemo,    CanvasRevealEffectDemo3,  ColourfulTextDemo,  FollowingPointerDemo, GlowingEffectDemo, HeroScrollDemo, StickyScrollRevealDemo, ThreeDCardDemo, WobbleCardDemo } from "./homespages";
 
 
 const page = () => {
@@ -6,12 +6,18 @@ const page = () => {
     <div>
       <NavbarDemo />
       <ColourfulTextDemo />
+      <br />
+      <br />
+      <GlowingEffectDemo />
+      <br />
+      <br />
+      <CanvasRevealEffectDemo3 />
+      <br />
+      <br />
+      <BentoGridThirdDemo />
 
-      <AppleCardsCarouselDemo />
-      <ThreeDCardDemo />
-
-      <ThreeDCardDemo />
-
+      <HeroScrollDemo />
+      <FollowingPointerDemo />
       <StickyScrollRevealDemo />
 
 
