@@ -1,4 +1,4 @@
-import NavbarDemo, { BentoGridThirdDemo,    CanvasRevealEffectDemo3,  ColourfulTextDemo,  FollowingPointerDemo, GlowingEffectDemo, HeroScrollDemo, StickyScrollRevealDemo, ThreeDCardDemo, WobbleCardDemo } from "./homespages";
+import NavbarDemo, { BentoGridThirdDemo,    CanvasRevealEffectDemo3,  ColourfulTextDemo,  FollowingPointerDemo, HeroScrollDemo, StickyScrollRevealDemo } from "./homespages";
 
 
 const page = () => {
@@ -8,7 +8,7 @@ const page = () => {
       <ColourfulTextDemo />
       <br />
       <br />
-      <GlowingEffectDemo />
+      
       <br />
       <br />
       <CanvasRevealEffectDemo3 />

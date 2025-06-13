@@ -6,7 +6,6 @@ import {
   NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
@@ -18,7 +17,6 @@ import ColourfulText from "@/components/ui/colourful-text";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import Carousel from "@/components/ui/carousel";
 import { FollowerPointerCard } from "../components/ui/following-pointer";
-
 import { ContainerScroll } from "../components/ui/container-scroll-animation";
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 import {
@@ -31,20 +29,9 @@ import {
 import { cn } from "@/lib/utils";
 import { AnimatePresence } from "motion/react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-import { WobbleCard } from "../components/ui/wobble-card";
-import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-
-
-
-
-
-
-
-
+import Image from "next/image";
 
 import { motion } from "motion/react";
-
 
 export default function NavbarDemo() {
   const navItems = [
@@ -72,8 +59,12 @@ export default function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <button className="px-4 py-2 bg-gray-200 text-black rounded">
+              Login
+            </button>
+            <button className="px-4 py-2 bg-blue-600 text-white rounded">
+              Book a call
+            </button>
           </div>
         </NavBody>
 
@@ -102,34 +93,28 @@ export default function NavbarDemo() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
+              <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                className="w-full px-4 py-2 bg-gray-200 text-black rounded"
               >
                 Login
-              </NavbarButton>
-              <NavbarButton
+              </button>
+              <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
+                className="w-full px-4 py-2 bg-blue-600 text-white rounded"
               >
                 Book a call
-              </NavbarButton>
+              </button>
             </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-            
-      {/* Navbar */}
     </div>
   );
 }
 
 
-
-
-
+// Reste du code inchangé...
 const content = [
   {
     title: "Faso Craie – Une fierté nationale",
@@ -137,7 +122,7 @@ const content = [
       "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-       <img
+       <Image
           src="/OIP.jpg"
           width={300}
           height={300}
@@ -153,7 +138,7 @@ const content = [
       "Au-delà de la production, Rabin Goro s'engage activement dans la promotion de l'entrepreneuriat chez les jeunes. Il organise régulièrement des conférences et des événements pour encourager l'auto-emploi et l'innovation locale. Son initiative s'inscrit dans une dynamique de valorisation du Consommons burkinabè, visant à stimuler l'économie nationale et à renforcer la souveraineté industrielle du pays.",
     content: (
       <div className="flex h-full w-full items-center justify-center text-white">
-        <img
+        <Image
           src="/alexander-grey-O2u6gA2esAI-unsplash.jpg"
           width={300}
           height={300}
@@ -166,11 +151,12 @@ const content = [
   {
     title: "Une reconnaissance nationale",
     description:
-      "En reconnaissance de son engagement exemplaire pour l’industrialisation locale et l’innovation au service du développement, Rabin Goro a été décoré Chevalier de l’Ordre du Mérite burkinabè en décembre 2024. Cette distinction vient saluer son parcours inspirant et son impact concret sur l’économie nationale.",
+      "En reconnaissance de son engagement exemplaire pour l'industrialisation locale et l'innovation au service du développement, Rabin Goro a été décoré Chevalier de l'Ordre du Mérite burkinabè en décembre 2024. Cette distinction vient saluer son parcours inspirant et son impact concret sur l'économie nationale.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-         <img
+         <Image
           src="/WhatsApp Image 2025-04-28 at 17.54.06.jpeg"
+          alt="linear board demo"
           width={300}
           height={300}
         />
@@ -183,7 +169,7 @@ const content = [
       "Faso Craie ne compte pas s'arrêter là. L'entreprise envisage de diversifier sa production avec des craies de couleur et de conquérir le marché sous-régional. Elle aspire à devenir une référence en matière de production de fournitures scolaires en Afrique de l'Ouest, tout en continuant à promouvoir les valeurs de patriotisme, de qualité et d'innovation",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-       <img
+       <Image
           src="/alexander-grey-VMZQHJg2aW8-unsplash.jpg"
           width={300}
           height={300}
@@ -194,6 +180,7 @@ const content = [
     ),
   },
 ];
+
 export function StickyScrollRevealDemo() {
   return (
     <div className="w-full py-4">
@@ -201,9 +188,6 @@ export function StickyScrollRevealDemo() {
     </div>
   );
 }
-
-
-
 
 export function ColourfulTextDemo() {
   return (
@@ -218,13 +202,9 @@ export function ColourfulTextDemo() {
       <h1 className="text-2xl md:text-5xl lg:text-7xl font-bold text-center text-white relative z-2 font-sans">
          Avec <ColourfulText text="Faso Craie" /> <br /> l&apos;avenir s&apos;écrit ensemble
       </h1>
-
     </div>
   );
 }
-
-
-
 
 export function ThreeDCardDemo() {
   return (
@@ -244,7 +224,7 @@ export function ThreeDCardDemo() {
           Hover over this card to unleash the power of CSS perspective
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
-          <img
+          <Image
             src="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
             height="1000"
             width="1000"
@@ -274,96 +254,6 @@ export function ThreeDCardDemo() {
     </CardContainer>
   );
 }
-
-/*
-
-export function AppleCardsCarouselDemo() {
-  const cards = data.map((card, index) => (
-    <Card key={card.src} card={card} index={index} />
-  ));
-
-  return (
-    <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Get to know your iSad.
-      </h2>
-      <Carousel items={cards} />
-    </div>
-  );
-}
-
-const DummyContent = () => {
-  return (
-    <>
-        return (
-          <div
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{" "}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
-            </p>
-            <img
-              src="https://assets.aceternity.com/macbook.png"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-            />
-          </div>
-        );
-      
-    </>
-  );
-};
-
-const data = [
-  {
-    category: "Artificial Intelligence",
-    title: "You can do more with AI.",
-    src: "public/alexander-grey-VMZQHJg2aW8-unsplash.jpg",
-    content: <DummyContent />,
-  },
-  {
-    category: "Productivity",
-    title: "Enhance your productivity.",
-    src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "Product",
-    title: "Launching the new Apple Vision Pro.",
-    src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-
-  {
-    category: "Product",
-    title: "Maps for your iPhone 15 Pro Max.",
-    src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "iOS",
-    title: "Photography just got better.",
-    src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-  {
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },
-];
-*/
-
-
 
 export function CarouselDemo() {
   const slideData = [
@@ -395,9 +285,6 @@ export function CarouselDemo() {
   );
 }
 
-
-
-
 export function FollowingPointerDemo() {
   return (
     <div className="mx-auto w-80">
@@ -411,12 +298,13 @@ export function FollowingPointerDemo() {
       >
         <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100">
-            <img
-              src={blogContent.image}
-              alt="thumbnail"
-              className="h-full transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
-            />
-          </div>
+  <Image
+    src={blogContent.image}
+    alt="thumbnail"
+    fill
+    className="transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+  />
+</div>
           <div className="p-4">
             <h2 className="my-4 text-lg font-bold text-zinc-700">
               {blogContent.title}
@@ -456,7 +344,7 @@ const TitleComponent = ({
   avatar: string;
 }) => (
   <div className="flex items-center space-x-2">
-    <img
+    <Image
       src={avatar}
       height="20"
       width="20"
@@ -466,9 +354,6 @@ const TitleComponent = ({
     <p>{title}</p>
   </div>
 );
-
-
-
 
 export function HeroScrollDemo() {
   return (
@@ -480,7 +365,7 @@ export function HeroScrollDemo() {
           </>
         }
       >
-        <img
+        <Image
           src={`/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg`}
           alt="hero"
           height={720}
@@ -492,12 +377,6 @@ export function HeroScrollDemo() {
     </div>
   );
 }
-
-
-
-
-
-
 
 export function BentoGridThirdDemo() {
   return (
@@ -572,6 +451,7 @@ const SkeletonOne = () => {
     </motion.div>
   );
 };
+
 const SkeletonTwo = () => {
   const variants = {
     initial: {
@@ -611,6 +491,7 @@ const SkeletonTwo = () => {
     </motion.div>
   );
 };
+
 const SkeletonThree = () => {
   const variants = {
     initial: {
@@ -641,6 +522,7 @@ const SkeletonThree = () => {
     </motion.div>
   );
 };
+
 const SkeletonFour = () => {
   const first = {
     initial: {
@@ -673,7 +555,7 @@ const SkeletonFour = () => {
         variants={first}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <img
+        <Image
           src="/02f78412-0500-4fd5-a4c0-373da09ddc8e.jpg"
           alt="avatar"
           height="100"
@@ -686,7 +568,7 @@ const SkeletonFour = () => {
         </p>
       </motion.div>
       <motion.div className="h-full relative z-20 w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center">
-        <img
+        <Image
           src="/02f78412-0500-4fd5-a4c0-373da09ddc8e.jpg"
           alt="avatar"
           height="100"
@@ -702,7 +584,7 @@ const SkeletonFour = () => {
         variants={second}
         className="h-full w-1/3 rounded-2xl bg-white p-4 dark:bg-black dark:border-white/[0.1] border border-neutral-200 flex flex-col items-center justify-center"
       >
-        <img
+        <Image
           src="/02f78412-0500-4fd5-a4c0-373da09ddc8e.jpg"
           alt="avatar"
           height="100"
@@ -717,6 +599,7 @@ const SkeletonFour = () => {
     </motion.div>
   );
 };
+
 const SkeletonFive = () => {
   const variants = {
     initial: {
@@ -753,7 +636,7 @@ const SkeletonFive = () => {
         variants={variants}
         className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
-        <img
+        <Image
           src="/premium_vector-1729100276796-0bff726d5a76.avif"
           alt="avatar"
           height="100"
@@ -762,8 +645,6 @@ const SkeletonFive = () => {
         />
         <p className="text-xs text-neutral-500">
           « Depuis que nous utilisons cette craie, les tableaux restent propres et les cours sont plus fluides. »
-
-
         </p>
       </motion.div>
       <motion.div
@@ -775,12 +656,13 @@ const SkeletonFive = () => {
     </motion.div>
   );
 };
+
 const items = [
   {
     title: "Accroche principale",
     description: (
       <span className="text-sm">
-        Une craie 100% burkinabè, pour écrire l’avenir..
+        Une craie 100% burkinabè, pour écrire l&apos;avenir..
       </span>
     ),
     header: <SkeletonOne />,
@@ -791,7 +673,7 @@ const items = [
     title: "Présentation de l'usine",
     description: (
       <span className="text-sm">
-        Une usine au service de l’éducation et de l’économie locale.
+        Une usine au service de l&apos;éducation et de l&apos;économie locale.
       </span>
     ),
     header: <SkeletonTwo />,
@@ -820,7 +702,6 @@ const items = [
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
-
   {
     title: "Fierté nationale",
     description: (
@@ -834,13 +715,9 @@ const items = [
   },
 ];
 
-
-
-
-
-
 export function CanvasRevealEffectDemo3() {
   const [hovered, setHovered] = React.useState(false);
+
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -848,9 +725,9 @@ export function CanvasRevealEffectDemo3() {
       className="h-[40rem] flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black w-full gap-4 mx-auto px-8 relative"
     >
       <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-  Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis.  
-  Chaque trait que l&apos;on trace marque le savoir en mouvement.
-</p>
+        Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis.  
+        Chaque trait que l&apos;on trace marque le savoir en mouvement.
+      </p>
 
       <AnimatePresence>
         {hovered && (
@@ -873,154 +750,8 @@ export function CanvasRevealEffectDemo3() {
           </motion.div>
         )}
       </AnimatePresence>
-      {/* Radial gradient for the cute fade */}
+
       <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
     </div>
   );
 }
-
-
-
-
-export function WobbleCardDemo() {
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full">
-      <WobbleCard
-        containerClassName="col-span-1 lg:col-span-2 h-full bg-pink-800 min-h-[500px] lg:min-h-[300px]"
-        className=""
-      >
-        <div className="max-w-xs">
-          <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Gippity AI powers the entire universe
-          </h2>
-          <p className="mt-4 text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
-          </p>
-        </div>
-        <img
-          src="/02f78412-0500-4fd5-a4c0-373da09ddc8e.jpg"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
-        />
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 min-h-[300px]">
-        <h2 className="max-w-80  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-          No shirt, no shoes, no weapons.
-        </h2>
-        <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-          If someone yells “stop!”, goes limp, or taps out, the fight is over.
-        </p>
-      </WobbleCard>
-      <WobbleCard containerClassName="col-span-1 lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-        <div className="max-w-sm">
-          <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-            Signup for blazing-fast cutting-edge state of the art Gippity AI
-            wrapper today!
-          </h2>
-          <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-            With over 100,000 mothly active bot users, Gippity AI is the most
-            popular AI platform for developers.
-          </p>
-        </div>
-        <img
-          src="/alexander-grey-VMZQHJg2aW8-unsplash.jpg"
-          width={500}
-          height={500}
-          alt="linear demo image"
-          className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-        />
-      </WobbleCard>
-    </div>
-  );
-}
-
-
-
-
-
-
-export function GlowingEffectDemo() {
-  return (
-    <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
-      <GridItem
-        area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-        icon={<Box className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="Produire la craie, mais mieux"
-        description="Notre usine valorise les ressources locales pour fabriquer une craie de qualité, résistante et adaptée aux besoins scolaires et professionnels."
-      />
-
-      <GridItem
-        area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-        icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title=" L’usine de craie 100 % burkinabè"
-        description="Conçue par des Burkinabè, pour le Burkina Faso. Notre technologie locale crée des emplois et booste l’économie nationale."
-      />
-
-      <GridItem
-        area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-        icon={<Lock className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="Bientôt disponible: produits exclusifs"
-        description="Nous travaillons sur des gammes spéciales (craie colorée, écoresponsable...). Restez connectés pour les nouveautés à venir !"
-      />
-
-      <GridItem
-        area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-        icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title=" Soutenez la craie made in Burkina"
-        description="Acheter notre craie, c’est soutenir la production locale, l’emploi et l’éducation. Le meilleur investissement que vous ferez."
-      />
-
-      <GridItem
-        area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-        icon={<Search className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="Le meilleur choix pour l’éducation"
-        description="Solide, sans poussière nocive, facile à effacer : notre craie est pensée pour les élèves, enseignants et artistes du Faso."
-      />
-    </ul>
-  );
-}
-
-interface GridItemProps {
-  area: string;
-  icon: React.ReactNode;
-  title: string;
-  description: React.ReactNode;
-}
-
-const GridItem = ({ area, icon, title, description }: GridItemProps) => {
-  return (
-    <li className={`min-h-[14rem] list-none ${area}`}>
-      <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
-        <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={64}
-          inactiveZone={0.01}
-        />
-        <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-          <div className="relative flex flex-1 flex-col justify-between gap-3">
-            <div className="w-fit rounded-lg border border-gray-600 p-2">
-              {icon}
-            </div>
-            <div className="space-y-3">
-              <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
-                {title}
-              </h3>
-              <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
-                {description}
-              </h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </li>
-  );
-};
-
-
-
-

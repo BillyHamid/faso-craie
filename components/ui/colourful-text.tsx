@@ -2,7 +2,9 @@
 import React from "react";
 import { motion } from "motion/react";
 
+
 export default function ColourfulText({ text }: { text: string }) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const colors = [
     "rgb(131, 179, 32)",
     "rgb(47, 195, 106)",
@@ -27,7 +29,7 @@ export default function ColourfulText({ text }: { text: string }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [colors]);
 
   return text.split("").map((char, index) => (
     <motion.span
