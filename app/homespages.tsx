@@ -170,7 +170,7 @@ const content = [
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
        <Image
-          src="/alexander-grey-VMZQHJg2aW8-unsplash.jpg"
+          src="/miki-fath-1v1zjqxldmc-unsplash.jpg"
           width={300}
           height={300}
           className="h-full w-full object-cover"
