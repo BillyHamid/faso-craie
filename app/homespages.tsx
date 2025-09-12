@@ -856,11 +856,7 @@ export function HeroVideoDialogDemo() {
 }
 
 
-import { LoaderThree } from "@/components/ui/loader";
 
-export function LoaderThreeDemo() {
-  return <LoaderThree />;
-}
 
 
 
@@ -872,7 +868,7 @@ export function PointerHighlightDemo() {
 
   {/* Bloc 1 */}
   <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
+    <Image
       src="/3D.gif"
       alt="Outils éducatifs"
       className="h-60 w-full rounded-lg object-cover shadow-md"
@@ -896,7 +892,7 @@ export function PointerHighlightDemo() {
 
   {/* Bloc 2 */}
   <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
+    <Image
       src="/premium_vector-1720985678942-9d84d3189a56.avif"
       alt="Solutions Innovantes"
       className="h-60 w-full rounded-lg object-cover shadow-md"
@@ -921,7 +917,7 @@ export function PointerHighlightDemo() {
 
   {/* Bloc 3 */}
   <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
+    <Image
       src="/Welcome (1).gif"
       alt="Technologie Durable"
       className="h-60 w-full rounded-lg object-cover shadow-md"
