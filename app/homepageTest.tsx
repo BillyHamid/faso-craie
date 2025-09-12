@@ -26,61 +26,23 @@ import {
   IconTableColumn,
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import Image from "next/image";
-
-import { motion } from "motion/react";
 import { ImagesSlider } from "@/components/ui/images-slider";
-
-
-
-
-
-
-import { StickyBanner } from "@/components/ui/sticky-banner";
-
-export function StickyBannerDemo() {
-  return (
-    <div className="relative flex w-full flex-col">
-  <StickyBanner className="bg-gradient-to-b from-red-500 to-red-700"
->
-    <p className="mx-0 max-w-[90%] text-white drop-shadow-md">
-  Une nouvelle étape commence : de nouvelles solutions pour mieux répondre à vos besoins.{" "}
-  <a href="#" className="transition duration-200 hover:underline">
-    Lire l’annonce
-  </a>
-</p>
-
-  </StickyBanner>
-</div>
-
-  );
-}
-
-
-
-
-
-
-
 
 export default function NavbarDemo() {
   const navItems = [
     {
-      name: "Acceuil",
-      link: "#home",
+      name: "About",
+      link: "#features",
     },
     {
-      name: "A propos de nous",
-      link: "#mission",
-    },
-     {
-      name: "Notre Mission",
-      link: "#mission",
+      name: "Mission",
+      link: "#pricing",
     },
     {
-      name: "Contactez-nous",
+      name: "Contact",
       link: "#contact",
     },
   ];
@@ -90,14 +52,10 @@ export default function NavbarDemo() {
   return (
     <div className="relative w-full">
       <Navbar>
-        {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          
         </NavBody>
-
-        {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
@@ -106,7 +64,6 @@ export default function NavbarDemo() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             />
           </MobileNavHeader>
-
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
@@ -142,7 +99,6 @@ export default function NavbarDemo() {
   );
 }
 
-
 // Reste du code inchangé...
 const content = [
   {
@@ -151,7 +107,7 @@ const content = [
       "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-       <Image
+        <Image
           src="/OIP.jpg"
           width={300}
           height={300}
@@ -183,7 +139,7 @@ const content = [
       "En reconnaissance de son engagement exemplaire pour l'industrialisation locale et l'innovation au service du développement, Rabin Goro a été décoré Chevalier de l'Ordre du Mérite burkinabè en décembre 2024. Cette distinction vient saluer son parcours inspirant et son impact concret sur l'économie nationale.",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
-         <Image
+        <Image
           src="/WhatsApp Image 2025-04-28 at 17.54.06.jpeg"
           alt="linear board demo"
           width={300}
@@ -198,7 +154,7 @@ const content = [
       "Faso Craie ne compte pas s'arrêter là. L'entreprise envisage de diversifier sa production avec des craies de couleur et de conquérir le marché sous-régional. Elle aspire à devenir une référence en matière de production de fournitures scolaires en Afrique de l'Ouest, tout en continuant à promouvoir les valeurs de patriotisme, de qualité et d'innovation",
     content: (
       <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
-       <Image
+        <Image
           src="/miki-fath-1v1zjqxldmc-unsplash.jpg"
           width={300}
           height={300}
@@ -223,20 +179,18 @@ export function ColourfulTextDemo() {
     <div className="h-screen w-full flex items-center justify-center relative overflow-hidden bg-black">
       <motion.img
         src="/banier.jpg"
-        
+
       />
-      
+
     </div>
   );
 }
 
-//baniere secondaire
-
+// Nouvelle version du composant ImagesSliderDemo
 export function ImagesSliderDemo() {
   const images = [
+    // Remplacer par le chemin de votre image de bannière
     "/banier.jpg",
-    "/banner5.jpg",
-    "/banner4.jpg",
   ];
   return (
     <ImagesSlider className="h-[40rem]" images={images}>
@@ -252,10 +206,42 @@ export function ImagesSliderDemo() {
         transition={{
           duration: 0.6,
         }}
-        className="z-50 flex flex-col justify-center items-center"
+        className="z-50 flex flex-col justify-center items-center w-full h-full relative p-4"
       >
-        
-        
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent z-10" />
+
+        <div className="relative z-20 max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start text-white gap-8 md:gap-16 px-4">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2 lg:w-2/3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+              Meet Studio, <br /> Your Agency <br /> for Growth.
+            </h1>
+            <p className="text-base md:text-lg mb-8 max-w-md">
+              We&apos;re a branding agency with a speciality in direct to consumer and challenger
+              brands those that think differently, act differently and walk their talk.
+            </p>
+            <button className="px-6 py-3 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-colors">
+              EXPLORE OUR SERVICES
+            </button>
+          </div>
+
+          <div className="md:w-1/2 lg:w-1/3 flex flex-col items-center md:items-end gap-6 mt-8 md:mt-0">
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center min-w-[150px] shadow-lg">
+              <p className="text-4xl font-bold">No.1</p>
+              <p className="text-sm">Growing up</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center min-w-[150px] shadow-lg -translate-x-8">
+              <p className="text-4xl font-bold">250k</p>
+              <p className="text-sm">client</p>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center min-w-[150px] shadow-lg translate-x-8">
+              <p className="text-base font-bold mb-2">SHARE</p>
+              <p className="text-xs">on your social</p>
+              <div className="w-full h-16 bg-gray-300 rounded mt-2 flex items-center justify-center text-black text-xs">
+                Image des mains
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </ImagesSlider>
   );
@@ -264,7 +250,7 @@ export function ImagesSliderDemo() {
 export function ThreeDCardDemo() {
   return (
     <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+      <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
         <CardItem
           translateZ="50"
           className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -353,13 +339,13 @@ export function FollowingPointerDemo() {
       >
         <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100">
-  <Image
-    src={blogContent.image}
-    alt="thumbnail"
-    fill
-    className="transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
-  />
-</div>
+            <Image
+              src={blogContent.image}
+              alt="thumbnail"
+              fill
+              className="transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+            />
+          </div>
           <div className="p-4">
             <h2 className="my-4 text-lg font-bold text-zinc-700">
               {blogContent.title}
@@ -391,37 +377,32 @@ const blogContent = {
   authorAvatar: "/d9a2f9a6-bc25-48b8-b978-c4e3f7277f2c.jpg",
 };
 
-const TitleComponent = ({
-  title,
-  avatar,
-}: {
-  title: string;
-  avatar: string;
-}) => (
-  <div className="flex items-center space-x-2">
-    <Image
-      src={avatar}
-      height="20"
-      width="20"
-      alt="thumbnail"
-      className="rounded-full border-2 border-white"
-    />
-    <p>{title}</p>
-  </div>
-);
-
+const TitleComponent = ({ title, avatar }) => {
+    return (
+        <div className="flex items-center space-x-2">
+            <Image
+                src={avatar}
+                height="20"
+                width="20"
+                alt="thumbnail"
+                className="rounded-full border-2 border-white"
+            />
+            <p>{title}</p>
+        </div>
+    );
+};
 export function HeroScrollDemo() {
   return (
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
         titleComponent={
           <>
-           
+
           </>
         }
       >
         <Image
-          src={`/preview.png`}
+          src={`/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg`}
           alt="hero"
           height={720}
           width={1400}
@@ -484,7 +465,7 @@ const SkeletonOne = () => {
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-white dark:bg-black"
       >
         <div className="h-6 w-6 rounded-full bg-gradient-to-r from-pink-500 to-violet-500 shrink-0" />
         <div className="w-full bg-gray-100 h-4 rounded-full dark:bg-neutral-900" />
@@ -540,7 +521,7 @@ const SkeletonTwo = () => {
           style={{
             maxWidth: Math.random() * (100 - 40) + 40 + "%",
           }}
-          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
+          className="flex flex-row rounded-full border border-neutral-100 dark:border-white/[0.2] p-2  items-center space-x-2 bg-neutral-100 dark:bg-black w-full h-4"
         ></motion.div>
       ))}
     </motion.div>
@@ -617,7 +598,7 @@ const SkeletonFour = () => {
           width="100"
           className="rounded-full h-10 w-10"
         />
-        
+
         <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Delusional
         </p>
@@ -630,7 +611,7 @@ const SkeletonFour = () => {
           width="100"
           className="rounded-full h-10 w-10"
         />
-       
+
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Sensible
         </p>
@@ -646,7 +627,7 @@ const SkeletonFour = () => {
           width="100"
           className="rounded-full h-10 w-10"
         />
-      
+
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
           Helpless
         </p>
@@ -689,7 +670,7 @@ const SkeletonFive = () => {
     >
       <motion.div
         variants={variants}
-        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
+        className="flex flex-row rounded-2xl border border-neutral-100 dark:border-white/[0.2] p-2  items-start space-x-2 bg-white dark:bg-black"
       >
         <Image
           src="/premium_vector-1729100276796-0bff726d5a76.avif"
@@ -739,7 +720,7 @@ const items = [
     title: "Objectif et vision",
     description: (
       <span className="text-sm">
-       Notre mission : rendre la craie accessible à tous.
+        Notre mission : rendre la craie accessible à tous.
       </span>
     ),
     header: <SkeletonThree />,
@@ -750,8 +731,8 @@ const items = [
     title: " Développement durable / local",
     description: (
       <span className="text-sm">
-        Une craie propre pour un avenir durable. 
-       </span>
+        Une craie propre pour un avenir durable.
+      </span>
     ),
     header: <SkeletonFour />,
     className: "md:col-span-2",
@@ -780,7 +761,7 @@ export function CanvasRevealEffectDemo3() {
       className="h-[40rem] flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black w-full gap-4 mx-auto px-8 relative"
     >
       <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-        Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis.  
+        Sans craie, rien n&apos;est écrit. Rien n&apos;est transmis.
         Chaque trait que l&apos;on trace marque le savoir en mouvement.
       </p>
 
@@ -815,135 +796,21 @@ import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
 
 export function HeroVideoDialogDemo() {
   return (
-  <div className="flex justify-center gap-8 p-30">
-  <div className="relative w-[240px] h-[160px]">
-    <HeroVideoDialog
-      className="block dark:hidden"
-      animationStyle="from-center"
-      videoSrc="/faso.mp4"
-      thumbnailSrc="/2e28dbf9-c270-4c05-b101-929cbef11890 (1).jpg"
-      thumbnailAlt="Hero Video"
-    />
-    <HeroVideoDialog
-      className="hidden dark:block"
-      animationStyle="from-center"
-      videoSrc="/faso.mp4"
-      thumbnailSrc="/2e28dbf9-c270-4c05-b101-929cbef11890 (1).jpg"
-      thumbnailAlt="Hero Video"
-    />
-  </div>
-
-  <div className="relative w-[240px] h-[160px]">
-    <HeroVideoDialog
-      className="block dark:hidden"
-      animationStyle="from-center"
-      videoSrc="/faso.mp4"
-      thumbnailSrc="/alexander-grey-O2u6gA2esAI-unsplash.jpg"
-      thumbnailAlt="Hero Video"
-    />
-    <HeroVideoDialog
-      className="hidden dark:block"
-      animationStyle="from-center"
-      videoSrc="/faso.mp4"
-      thumbnailSrc="/alexander-grey-O2u6gA2esAI-unsplash.jpg"
-      thumbnailAlt="Hero Video"
-    />
-  </div>
-</div>
-
-    
-  );
-}
-
-
-import { LoaderThree } from "@/components/ui/loader";
-
-export function LoaderThreeDemo() {
-  return <LoaderThree />;
-}
-
-
-
-import { PointerHighlight } from "@/components/ui/pointer-highlight";
-
-export function PointerHighlightDemo() {
-  return (
-<div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 py-24 sm:grid-cols-3">
-
-  {/* Bloc 1 */}
-  <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
-      src="/3D.gif"
-      alt="Outils éducatifs"
-      className="h-60 w-full rounded-lg object-cover shadow-md"
-    />
-
-    <div className="mx-auto mt-4 max-w-lg text-base font-bold tracking-tight md:text-base text-gray-900 dark:text-gray-100">
-      <PointerHighlight
-        rectangleClassName="bg-yellow-100 dark:bg-yellow-900 border-yellow-300 dark:border-yellow-700 leading-loose"
-        pointerClassName="text-yellow-500 h-4 w-4"
-        containerClassName="inline-block mr-2"
-      >
-        <span className="relative z-10">Outil éducatif</span>
-      </PointerHighlight>
-      pour une expérience d’apprentissage optimale.
+    <div className="relative">
+      <HeroVideoDialog
+        className="block dark:hidden"
+        animationStyle="from-center"
+        videoSrc="/faso.mp4"
+        thumbnailSrc="/47e004f1-a06e-4be1-a9be-b1de8e17bd5c.jpg"
+        thumbnailAlt="Hero Video"
+      />
+      <HeroVideoDialog
+        className="hidden dark:block"
+        animationStyle="from-center"
+        videoSrc="/faso.mp4"
+        thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+        thumbnailAlt="Hero Video"
+      />
     </div>
-
-    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-      Découvrez nos outils interactifs conçus pour faciliter l’enseignement et l’apprentissage.
-    </p>
-  </div>
-
-  {/* Bloc 2 */}
-  <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
-      src="/premium_vector-1720985678942-9d84d3189a56.avif"
-      alt="Solutions Innovantes"
-      className="h-60 w-full rounded-lg object-cover shadow-md"
-    />
-
-    <div className="mx-auto mt-4 max-w-lg text-base font-bold tracking-tight md:text-base text-gray-900 dark:text-gray-100">
-      Découvrez nos
-      <PointerHighlight
-        rectangleClassName="bg-blue-100 dark:bg-blue-900 border-blue-300 dark:border-blue-700 leading-loose"
-        pointerClassName="text-blue-500 h-4 w-4"
-        containerClassName="inline-block mx-1"
-      >
-        <span className="relative z-10">solutions innovantes</span>
-      </PointerHighlight>
-      pour améliorer l’éducation.
-    </div>
-
-    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-      Des idées modernes transformées en solutions concrètes pour enseignants et élèves.
-    </p>
-  </div>
-
-  {/* Bloc 3 */}
-  <div className="rounded-md p-6 shadow-lg bg-white dark:bg-gray-800 transition-transform hover:scale-105">
-    <img
-      src="/Welcome (1).gif"
-      alt="Technologie Durable"
-      className="h-60 w-full rounded-lg object-cover shadow-md"
-    />
-
-    <div className="mx-auto mt-4 max-w-lg text-base font-bold tracking-tight md:text-base text-gray-900 dark:text-gray-100">
-      Explorez l’avenir avec notre
-      <PointerHighlight
-        rectangleClassName="bg-green-100 dark:bg-green-900 border-green-300 dark:border-green-700 leading-loose"
-        pointerClassName="text-green-500 h-4 w-4"
-        containerClassName="inline-block ml-1"
-      >
-        <span className="relative z-10">technologie éducative durable</span>
-      </PointerHighlight>
-      .
-    </div>
-
-    <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-      Des solutions respectueuses de l’environnement pour un apprentissage responsable et efficace.
-    </p>
-  </div>
-
-</div>
   );
 }

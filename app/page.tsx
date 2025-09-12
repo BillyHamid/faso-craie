@@ -1,24 +1,34 @@
-import NavbarDemo, { BentoGridThirdDemo,    CanvasRevealEffectDemo3,  ColourfulTextDemo,  FollowingPointerDemo, HeroScrollDemo, StickyScrollRevealDemo } from "./homespages";
+import Footer from "@/components/footer.component";
+import NavbarDemo, { BentoGridThirdDemo,    CanvasRevealEffectDemo3,   HeroScrollDemo, HeroVideoDialogDemo, ImagesSliderDemo,    PointerHighlightDemo,    StickyBannerDemo,  StickyScrollRevealDemo } from "./homespages";
 
 
 const page = () => {
   return (
     <div>
+      <StickyBannerDemo/>
       <NavbarDemo />
-      <ColourfulTextDemo />
+      <ImagesSliderDemo />
       <br />
       <br />
+      <PointerHighlightDemo />
+      
       
       <br />
       <br />
-      <CanvasRevealEffectDemo3 />
+           <BentoGridThirdDemo />
+
       <br />
       <br />
-      <BentoGridThirdDemo />
+      <CanvasRevealEffectDemo3 /> 
 
       <HeroScrollDemo />
-      <FollowingPointerDemo />
+      {/* <FollowingPointerDemo /> */}
+      
+
       <StickyScrollRevealDemo />
+
+      <HeroVideoDialogDemo />
+      <Footer />
 
 
     </div>
